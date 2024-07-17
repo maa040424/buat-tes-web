@@ -5,7 +5,7 @@ body {
     box-sizing: border-box;
 }
 
-.container {
+.container { 
     width: 80%;
     margin: 0 auto;
 }
@@ -64,12 +64,12 @@ nav ul li a {
 }
 
 .slide {
-    width: 100%;
+    width: auto;
     transition: 0.6s ease;
 }
 
 .slide img {
-    width: 100%;
+    width: auto;
     height: auto;
 }
 
@@ -194,4 +194,71 @@ footer {
     text-align: center;
     padding: 1rem 0;
     margin-top: 2rem;
+}
+
+
+/* Menambahkan aturan CSS untuk memastikan gambar slider tampil dengan benar */
+.slider {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.slides {
+    display: flex;
+    transition: transform 0.6s ease;
+}
+
+.slide {
+    min-width: 100%;
+    transition: 0.6s ease;
+    background-size: cover; /* Mengisi elemen tanpa mengubah rasio aspek */
+    background-position: center; /* Memusatkan gambar */
+    background-repeat: no-repeat; /* Mencegah pengulangan gambar */
+    height: 500px; /* Atur tinggi sesuai kebutuhan */
+}
+
+.navigation-manual,
+.navigation-auto {
+    position: absolute;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    bottom: 10px; /* Memperbaiki posisi navigasi */
+}
+
+.manual-btn,
+.navigation-auto div {
+    border: 2px solid #ffffff;
+    padding: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+.manual-btn:not(:last-child),
+.navigation-auto div:not(:last-child) {
+    margin-right: 10px; /* Mengurangi jarak antar tombol */
+}
+
+.manual-btn:hover,
+.navigation-auto div:hover {
+    background: #ffffff;
+}
+
+/* Aturan CSS untuk radio input */
+#radio1:checked ~ .slides {
+    transform: translateX(0);
+}
+
+#radio2:checked ~ .slides {
+    transform: translateX(-100%);
+}
+
+#radio3:checked ~ .slides {
+    transform: translateX(-200%);
+}
+
+#radio4:checked ~ .slides {
+    transform: translateX(-300%);
 }
